@@ -1,0 +1,28 @@
+
+
+entity Characteristic {
+  characteristicId  String required ,
+  serviceId  String ,
+  descripcion  String  
+}
+
+entity ServiceType {
+  serviceId  String required  ,
+  descripcion  String ,
+}
+
+
+
+relationship ManyToOne {
+	Characteristic{serviceType} to ServiceType
+}
+
+
+// Set pagination options
+paginate ServiceType, Characteristic with pagination
+
+filter ServiceType, Characteristic
+// Set service options to all except few
+service all with serviceImpl 
+
+// angularSuffix * with mySuffi
