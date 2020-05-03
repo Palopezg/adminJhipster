@@ -1,10 +1,9 @@
 // Override Boostrap variables
 // Import Bootstrap source files from node_modules
+//@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootswatch/dist/sandstone/variables';
 @import 'node_modules/bootstrap/scss/bootstrap';
-body {
-  background: #fafafa;
-  margin: 0;
-}
+@import 'node_modules/bootswatch/dist/sandstone/bootswatch';
 
 a {
   color: #533f03;
@@ -261,6 +260,11 @@ a:hover {
 .hand {
   cursor: pointer;
 }
+
+$theme-colors: (
+  'primary': #d5d900,
+  'danger': #44ad07
+);
 
 button.anchor-btn {
   background: none;

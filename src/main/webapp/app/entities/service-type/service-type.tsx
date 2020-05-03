@@ -11,6 +11,10 @@ import { IServiceType } from 'app/shared/model/service-type.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 
+import {DataTable} from 'primereact/datatable';
+import  {Column} from 'primereact/column';
+
+
 export interface IServiceTypeProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
 export const ServiceType = (props: IServiceTypeProps) => {
@@ -48,6 +52,15 @@ export const ServiceType = (props: IServiceTypeProps) => {
   const { serviceTypeList, match, loading, totalItems } = props;
   return (
     <div>
+      <div>
+                    <DataTable value={serviceTypeList}>
+                        <Column field="id" header="ID" sortable={true} />
+                        <Column field="serviceId" header="Service Id " />
+                        <Column field="descripcion" header="Descripcion" />
+                  
+                    </DataTable>
+      </div>
+
       <h2 id="service-type-heading">
         Service Types
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
@@ -55,6 +68,8 @@ export const ServiceType = (props: IServiceTypeProps) => {
           &nbsp; Create new Service Type
         </Link>
       </h2>
+
+     
       <div className="table-responsive">
         {serviceTypeList && serviceTypeList.length > 0 ? (
           <Table responsive>
